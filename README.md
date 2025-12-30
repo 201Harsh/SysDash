@@ -1,6 +1,7 @@
 # ⚡ SysDash
 
-![SysDash Banner](https://via.placeholder.com/1200x400/0f172a/38bdf8?text=SysDash+Monitor)
+![Cobra AI Banner](https://img.shields.io/badge/🚀_SysDash-_+_System_stats-065F46?style=for-the-badge&logo=code&logoColor=white)
+
 
 > A modern, high-performance system monitor built with Electron, React, and Tailwind CSS v4.
 
@@ -86,8 +87,25 @@ SysDash/
 └── package.json
 ```
 
+---
+
 ## 🤝 Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.
 
+---
+
 ## 📄 License
 This project is licensed under the MIT License.
+
+---
+
+## 📮 Contact
+
+- LinkedIn: https://www.linkedin.com/in/201harsh/
+- GitHub: https://github.com/201Harsh
+- Instagram: https://instagram.com/201harshs
+- Email: gamerpandeyharsh@gmail.com
+
+---
+
+# Made with ❤️ by Harsh Pandey
