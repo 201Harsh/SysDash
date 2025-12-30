@@ -2,9 +2,34 @@ import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
+import si from 'systeminformation'
+
+ipcMain.handle('get-static-data', async () => {
+  const osInfo = await si.osInfo()
+  const cpu = await si.cpu()
+  const mem = await si.mem()
+
+  return {
+    platform: osInfo.platform,
+    distro: osInfo.distro,
+    release: osInfo.release,
+    cpuModel: cpu.brand,
+    totalMemGb: Math.round(mem.total / 1024 / 1024 / 1024)
+  }
+})
+
+ipcMain.handle('get-dynamic-data', async () => {
+  const cpuLoad = await si.currentLoad()
+  const mem = await si.mem()
+
+  return {
+    cpuLoad: Math.round(cpuLoad.currentLoad),
+    ramUsedGb: Math.round((mem.active / 1024 / 1024 / 1024) * 100) / 100,
+    ramUsagePercent: Math.round((mem.active / mem.total) * 100)
+  }
+})
 
 function createWindow(): void {
-  // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 900,
     height: 670,
