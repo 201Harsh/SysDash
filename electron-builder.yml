@@ -14,10 +14,24 @@ asarUnpack:
 win:
   executableName: sysdash
 nsis:
+  oneClick: false # Enables the "Wizard" mode
+  allowToChangeInstallationDirectory: true # Adds the "Choose Install Location" step
+  perMachine: false # false = Installs to AppData (No Admin needed), true = Program Files (Admin needed)
+
+  # The Steps Logic
+  license: build/license.txt # Adds the "License Agreement" step (REQUIRED for a standard wizard feel)
+
+  # Visual Customization (The "Clean" Look)
+  installerIcon: build/icon.ico # The Setup.exe icon
+  installerSidebar: build/sidebar.bmp # Left image (164x314 px) - Replaces the ugly default orange side bar
+  installerHeader: build/header.bmp # Top image (150x57 px) - Replaces the top right icon
+
+  # File Naming
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}
   uninstallDisplayName: ${productName}
   createDesktopShortcut: always
+  runAfterFinish: true # Checkbox to "Run SysDash" after install finishes
 mac:
   entitlementsInherit: build/entitlements.mac.plist
   extendInfo:
